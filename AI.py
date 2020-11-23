@@ -15,7 +15,10 @@ class Network(object):
             a=sigmond(np.dot(w,a)+b)
             return a
 
+    def SGD(self, training_data, epochs, mini_batch_size, eta, test_data=None):
 
+        if test_data: n_test = len(test_data)
+        n=len(training_data)
 
 
 
