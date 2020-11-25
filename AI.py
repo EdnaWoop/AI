@@ -43,6 +43,17 @@ class Network(object):
         self.biases =[b-(eta/len(mini_batch))*nb for b, nb in zip(self.biases, nabla_b)]
 
 
+    def backprop(self, x,y):
+        nabla_b = [np.zeros(b.shape) for b in self.biases]
+        nabla_w =[np.zeros(w.shape) for w in self.weights]
 
+        activation=x
+        activations =[x]
+        zs =[]
+        for b, w in zip(self.biases, self.weights):
+            z = np.dot(w,activation)+b
+            zs.append(z)
+            activation = sigmoid(z)
+            activations.append(activation)
 
 

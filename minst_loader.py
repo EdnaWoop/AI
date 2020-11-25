@@ -1,6 +1,6 @@
 import cPickle
 import gzip
-import numpy as np
+import numpy
 
 def load_data():
     f=gzip.open('../data/mnist.pkl.gz','rb')
