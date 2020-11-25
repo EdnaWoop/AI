@@ -1,3 +1,5 @@
+import random
+import numpy as np
 class Network(object):
     
     def _init_(self, sizes):
