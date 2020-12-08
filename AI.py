@@ -56,4 +56,17 @@ class Network(object):
             activation = sigmoid(z)
             activations.append(activation)
 
+        delta = self.cost_derivative(activations[-1],y)*\
+            sigmoid_prime(zs[-1])
+        nabla[-1] = delta
+        nabla_w[-1] = np.dot(delta, activations[-2].transpose())
+
+        for 1 in xrange(2, self.num_layers):
+            z=zs[-1]
+            sp=sigmoid_prime(z)
+            delta = np.dot(self.weights[-1+1].transpose(),delta)*sp
+            nabla_b[-1]=delta
+            nabla_w[-1]=np.dot(delta, activations[-1+1].transpose())
+        return(nabla_b, nabla_w)
+
 
