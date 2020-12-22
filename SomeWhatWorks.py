@@ -40,7 +40,7 @@ def predict_img(path):
     x = x.reshape(28,28,1)                   #Reshaping it to fit in our model
     x = np.expand_dims(x, axis=0)
     class_label = model.predict(x)          #predicting
-    print(\"Predicted Value is:\",np.where(class_label[0]==max(class_label[0]))[0])
+    print('Predicted Value is:',np.where(class_label[0]==max(class_label[0]))[0])
 
 predict_img(r'C:\\Users\\Yash\\Desktop\\KTH\\Sem1-p2-AI\\ProjectNn\\Digits\\2.png')
 
