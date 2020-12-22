@@ -60,9 +60,15 @@ def move_UD(img ,x ,a):
 
     if from_bottom_edge<from_uper_edge:
         differance = from_uper_edge-from_bottom_edge
+        for c in range(x-differance,a-differance):
+            for d in range(len(img)):
+                img[c][d]=temp_img[c-x][d]
 
     else:
-
+        differance = from_bottom_edge-from_uper_edge
+        for c in range(x+differance,a+differance):
+            for d in range(len(img)):
+                img[c][d]=temp_img[c-x][d]
 
 
 test_img = img.reshape((1,784))
