@@ -43,4 +43,4 @@ def predict_img(path):
     print('Predicted Value is:',np.where(class_label[0]==max(class_label[0]))[0])
 
 predict_img(r'C:\\Users\\Yash\\Desktop\\KTH\\Sem1-p2-AI\\ProjectNn\\Digits\\2.png')
-
+#
