@@ -27,6 +27,44 @@ model.load_weights('mnist-model.h5')
 
 img = image.load_img(path=r'C:\\Users\\Yash\\Desktop\\KTH\\Sem1-p2-AI\\ProjectNn\\inverted\\9.jpg',color_mode = 'grayscale',target_size=(28,28,1))
 img = image.img_to_array(img)
+
+def first_UD (img):
+    for x in range(len(img)):
+        for y in range(len(img[x])):
+            if 112 <img[x][y]:
+                return x
+
+def last_UD(img, x):
+    for a in range(len(img)-x):
+        c=0
+        for b in range(len(img[x])):
+            if 112 < img[x+a][b]:
+                a=a+1
+                c=1
+        if c == 0:
+            return a+x
+
+    return a+x
+
+def move_UD(img ,x ,a):
+    from_bottom_edge= 28-a
+    from_uper_edge=x
+
+    if from_bottom_edge==from_uper_edge:
+        return img
+
+    for c in range(x,a):
+        for d in range(len(img)):
+            temp_img[c-x][d]=img[c][d]
+            img[c][d]=0
+
+    if from_bottom_edge<from_uper_edge:
+        differance = from_uper_edge-from_bottom_edge
+
+    else:
+
+
+
 test_img = img.reshape((1,784))
 
 img_class = model.predict_classes(test_img)
@@ -39,4 +77,3 @@ plt.imshow(img)
 plt.title(classname)
 plt.show()
 
-#
