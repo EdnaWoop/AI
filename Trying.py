@@ -69,6 +69,28 @@ def move_UD(img ,x ,a):
         for c in range(x+differance,a+differance):
             for d in range(len(img)):
                 img[c][d]=temp_img[c-x][d]
+    return img
+
+
+def find_L (img):
+    for y in range(len(img)):
+        for x in range(len(img[x])):
+            if 112 <img[x][y]:
+                return x
+
+def find_R(img, x):
+    for b in range(len(img)):
+        c=0
+        for a in range(len(img[b])-x):
+            if 112 < img[x+a][b]:
+                b=b+1
+                c=1
+        if c == 0:
+            return a+x
+
+    return a+x
+
+
 
 
 test_img = img.reshape((1,784))
